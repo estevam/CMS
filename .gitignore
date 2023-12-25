@@ -37,3 +37,7 @@ replay_pid*
 target/
 /.factorypath
 
+.mvn/wrapper/maven-wrapper.properties
+.DS_Store
+mvnw
+mvnw.cmd
