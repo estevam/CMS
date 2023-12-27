@@ -117,7 +117,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>blog</finalName>
+		<finalName>est-blog</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
