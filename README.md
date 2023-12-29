@@ -10,6 +10,7 @@ Java 21
 Spring Boot: 3.2.0
 Spring Security: 6.2.0  
 H2 Database: 2.2.224
+Hibernate: 6.3.1.Final
 ```
 
  
