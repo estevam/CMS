@@ -7,7 +7,7 @@
  
 ### /login [POST] 
 It will create the access token and refresh token on the cookies
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -18,7 +18,7 @@ It will create the access token and refresh token on the cookies
 
 ### /logout [POST] 
 It will remove access and refresh token from the cookies
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -28,8 +28,8 @@ It will remove access and refresh token from the cookies
 | 500  | Internal Server Error |
 
 ### /token/refresh[POST] 
-#### If refresh token is not expired access token will refresh 
-##### Responses
+If refresh token is not expired access token will refresh 
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -39,8 +39,8 @@ It will remove access and refresh token from the cookies
 | 500  | Internal Server Error |
   
 ### /api/user/update [PUT]
-#### Update user
-##### Responses
+Update user
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -50,8 +50,8 @@ It will remove access and refresh token from the cookies
 | 500  | Internal Server Error |
 
 ### /api/user/create [POST]
-#### Create user
-##### Responses
+Create user
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -61,8 +61,8 @@ It will remove access and refresh token from the cookies
 | 500  | Internal Server Error |
 
 ### /api/user/find [GET]
-#### Find user
-##### Responses
+Find user
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -72,14 +72,14 @@ It will remove access and refresh token from the cookies
 | 500  | Internal Server Error |
 
 ### /api/user/find/{id} [GET]
-#### Find by ID 
-##### Parameters
+Find by ID 
+#### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- |  ----- |
 | id   |    path    |             |   Yes    |   long |
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
@@ -96,7 +96,7 @@ It will remove access and refresh token from the cookies
 | ---- | ---------- | ----------- | -------- | ----   |
 | id   | path       |             |    Yes   |   long |
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
