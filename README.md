@@ -6,11 +6,15 @@
  [H2 Database](http://localhost:8080/app/h2)  
  
 ```bash    
-Java 21
 Spring Boot: 3.2.0
 Spring Security: 6.2.0  
 H2 Database: 2.2.224
 Hibernate: 6.3.1.Final
+Swagger OpenAPI: 2.3.0
+Lombok : 1.18.30
+Actuator: 3.2.0
+Modelmapper: 3.2.0 
+Swagger OpenAPI: 2.3.0
 ```
 
  
