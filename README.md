@@ -36,7 +36,7 @@ It will remove access and refresh token from the cookies
 | 500  | Internal Server Error |
 
 ### /token/refresh[POST] 
-If refresh token is not expired access token will refresh 
+If refresh token is not expired, access token will refresh 
 #### Responses
 
 | Code | Description |
