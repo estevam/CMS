@@ -4,9 +4,9 @@
  [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
  
  [H2 Database](http://localhost:8080/app/h2)  
-  
-### Main Frameworks
+ 
 ```bash    
+Java 21
 Spring Boot: 3.2.0
 Spring Security: 6.2.0  
 H2 Database: 2.2.224
