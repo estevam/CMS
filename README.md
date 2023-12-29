@@ -6,7 +6,7 @@
  [H2 Database](http://localhost:8080/app/h2)  
  
 ### /login [POST] 
-####It will create the access token and refresh token on the cookies
+It will create the access token and refresh token on the cookies
 ##### Responses
 
 | Code | Description |
@@ -17,7 +17,7 @@
 | 500  | Internal Server Error |
 
 ### /logout [POST] 
-#### It will remove access and refresh token from theh cookies
+It will remove access and refresh token from the cookies
 ##### Responses
 
 | Code | Description |
