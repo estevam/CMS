@@ -1,6 +1,10 @@
 # OpenAPI definition
 ## Version: v0
-
+ 
+ [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
+ 
+ [H2 Database](http://localhost:8080/app/h2)  
+  
 ### /api/user/update
 
 #### PUT
