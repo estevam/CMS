@@ -8,9 +8,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Service response will encapsulate all the Service results to be used by
- * RestControllers
- * 
+ * Service response will encapsulate all the Service results to be used by RestControllers
+ * Builder partner 
  * @author Estevam Meneses
  * 
  */
