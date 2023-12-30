@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import ca.est.annotation.TimerExecution;
 import ca.est.entity.http.LoginRequest;
 import ca.est.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,17 +24,20 @@ public class AuthController {
 	  
 	  @Autowired
 	  private AuthService authService;
- 
+	
+	  @TimerExecution
 	  @PostMapping("/login")
 	  public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse res, HttpServletRequest req) {
 		  return authService.login(loginRequest,res,req).build();
 	  }
-	  	
+	  
+	  @TimerExecution
 	  @PostMapping("/logout")
 	  public ResponseEntity<?> logout(HttpServletResponse res, HttpServletRequest req) {
 		  return authService.logout(res, req).build();
 	  }
 	  
+	  @TimerExecution
 	  @PostMapping("/token/refresh")
 	  public ResponseEntity<?> refresh(HttpServletResponse res, HttpServletRequest req) {
 		  return authService.refresh(res, req).build();

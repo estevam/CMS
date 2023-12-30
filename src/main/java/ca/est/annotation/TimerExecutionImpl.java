@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 *
 * @author Estevam.Meneses
 * @since 05/10/2019
-* @apiNote Annotation implementation to ensure only numbers allowed
-* @category AOP Log Implementation
+* @apiNote 
+* @category
 */
 @Aspect
 @Component
-public class TimerExecutionAspect {
+public class TimerExecutionImpl {
     
-	final static Logger log = LoggerFactory.getLogger(TimerExecutionAspect.class);
+	final static Logger log = LoggerFactory.getLogger(TimerExecutionImpl.class);
 	
 	@Around("@annotation(ca.est.annotation.TimerExecution) && execution(public * *(..))")
     public Object time(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {

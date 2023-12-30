@@ -42,7 +42,6 @@ public class AuthService {
 	 * @param request
 	 * @return
 	 */
-	@TimerExecution
 	public ServiceResponse login(LoginRequest login, HttpServletResponse response, HttpServletRequest request) {
 
 		try {
