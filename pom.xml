@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ca.est</groupId>
-	<artifactId>est-blog</artifactId>
+	<artifactId>blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>est-blog</name>
 	<description>Spring boot blog using Spring security, data, JWT,OpenAPI and H2 </description>
