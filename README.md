@@ -1,6 +1,11 @@
 # OpenAPI definition
 
- 
+### REST endpoints with JWT security
+##### Basic futures:  
+   - Login, logout and refresh access token using refresh token 
+   - CRUD operation if user is authenticated on URI "**/api/**"  
+   
+   
  [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
  
  [H2 Database](http://localhost:8080/app/h2)  
