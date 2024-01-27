@@ -2,8 +2,9 @@
 
 ### REST endpoints with JWT security
 ##### Basic futures:  
-   - Login, logout and refresh access token using refresh token 
-   - CRUD operation if user is authenticated on URI "**/api/**"  
+   - Successfully login will create acces_token & refresh_token on the cookies
+   - Logout will remove access_token & refresh_token from the cookies
+   - CRUD operation authorized only if user is authenticated on URI "**/api/**"  
    
    
  [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
