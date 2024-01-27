@@ -4,7 +4,7 @@
 ##### Basic futures:  
    - Successfully login will create acces_token & refresh_token on the cookies
    - Logout will remove access_token & refresh_token from the cookies
-   - CRUD operation authorized only if user is authenticated on URI "**/api/**"  
+   - CRUD operation authorized only if user is authenticated given access on URI "**/api/**"  
    
    
  [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
