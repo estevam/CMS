@@ -1,6 +1,6 @@
 # OpenAPI definition
 
-### REST endpoints with JWT security
+### REST endpoints with JWT security for a simple blog
 ##### Basic futures:  
    - Successfully login will create acces_token & refresh_token on the cookies
    - Logout will remove access_token & refresh_token from the cookies
@@ -34,6 +34,9 @@ It will create the access token and refresh token on the cookies
 | 200  | OK |
 | 404  | Not Found |
 | 422  | Unprocessable Entity |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
 | 500  | Internal Server Error |
 
 ### /logout [POST] 
@@ -56,6 +59,9 @@ If refresh token is not expired, access token will refresh
 | 200  | OK |
 | 404  | Not Found |
 | 422  | Unprocessable Entity |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
 | 500  | Internal Server Error |
   
 ### /api/user/update [PUT]
@@ -67,6 +73,9 @@ Update user
 | 200  | OK |
 | 404  | Not Found |
 | 422  | Unprocessable Entity |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
 | 500  | Internal Server Error |
 
 ### /api/user/create [POST]
@@ -78,6 +87,9 @@ Create user
 | 200  | OK |
 | 404  | Not Found |
 | 422  | Unprocessable Entity |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
 | 500  | Internal Server Error |
 
 ### /api/user/find [GET]
@@ -89,6 +101,9 @@ Find user
 | 200  | OK |
 | 404  | Not Found |
 | 422  | Unprocessable Entity |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
 | 500  | Internal Server Error |
 
 ### /api/user/find/{id} [GET]
@@ -103,10 +118,13 @@ Find by ID
 
 | Code | Description |
 | ---- | ----------- |
-| 200 | OK |
-| 404 | Not Found |
-| 422 | Unprocessable Entity |
-| 500 | Internal Server Error |
+| 200  | OK |
+| 404  | Not Found |
+| 422  | Unprocessable Entity |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
+| 500  | Internal Server Error |
 
 ### /api/user/delete/{id} [DELETE]
 #### Delete by ID
@@ -123,4 +141,7 @@ Find by ID
 | 200 | OK |
 | 404 | Not Found |
 | 422 | Unprocessable Entity |
-| 500 | Internal Server Error |
+| 400  | Bad Request
+| 401  | Unauthorized   
+| 403  | Forbidden |
+| 500  | Internal Server Error |
