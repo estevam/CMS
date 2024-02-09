@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ca.est;
+package ca.est.util;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,9 +11,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.util.ReflectionTestUtils;
-
-import ca.est.util.JwtUtil;
-
+/**
+ * @author Estevam Meneses
+ */
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class JwtUtilTest {

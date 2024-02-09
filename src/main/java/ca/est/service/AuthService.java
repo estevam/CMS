@@ -42,7 +42,7 @@ public class AuthService {
 	 * @param request
 	 * @return
 	 */
-	public ServiceResponse login(LoginRequest login, HttpServletResponse response, HttpServletRequest request) {
+	public ServiceResponse login(LoginRequest login, HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 			Authentication authentication = authenticationManager

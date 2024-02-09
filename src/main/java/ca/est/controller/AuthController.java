@@ -28,7 +28,7 @@ public class AuthController {
 	  @TimerExecution
 	  @PostMapping("/login")
 	  public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse res, HttpServletRequest req) {
-		  return authService.login(loginRequest,res,req).build();
+		  return authService.login(loginRequest,req,res).build();
 	  }
 	  
 	  @TimerExecution
