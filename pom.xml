@@ -19,6 +19,7 @@
 		<java.version>21</java.version>
 		<spring.mock.version>2.0.8</spring.mock.version>
 		<jjwt.version>0.12.3</jjwt.version>
+	    <owasp.java.html.sanitizer.version>20220608.1</owasp.java.html.sanitizer.version>
 	</properties>
 
 	<dependencies>
@@ -117,6 +118,13 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		
+				<!-- OWASP Java HTML Sanitizer -->
+		<dependency>
+			<groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+			<artifactId>owasp-java-html-sanitizer</artifactId>
+			<version>${owasp.java.html.sanitizer.version}</version>
 		</dependency>
 		
 		<!-- Unit Test  -->

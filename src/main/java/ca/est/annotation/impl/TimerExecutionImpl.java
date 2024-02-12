@@ -1,4 +1,4 @@
-package ca.est.annotation;
+package ca.est.annotation.impl;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
 *
-* @author Estevam.Meneses
+* @author Estevam Meneses
 * @since 05/10/2019
 * @apiNote 
 * @category
