@@ -120,7 +120,7 @@ public class ArticleService {
 			TypeToken<UserCMS> typeToken = new TypeToken<>() {
 			};
 			UserCMS userCMS = modelMapper.map(secUser, typeToken.getType());
-			ar.setUserBlog(userCMS);
+			ar.setUserCMS(userCMS);
 
 			articleRepository.save(ar);
 			return new ServiceResponse(HttpStatus.OK);

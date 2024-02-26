@@ -31,7 +31,7 @@ public class UserUtil {
 			Object auth = authentication.getPrincipal();
 			if (auth instanceof UserDetailsBuilder) {
 				UserDetailsBuilder userDetailsBuilder = (UserDetailsBuilder) authentication.getPrincipal();
-				return userDetailsBuilder.getUserBlog();
+				return userDetailsBuilder.getUserCMS();
 			}
 		} catch (Exception e) {
 			log.error("Failed to get internal userBlog", e);
