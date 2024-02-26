@@ -10,7 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import ca.est.entity.UserBlog;
+import ca.est.entity.UserCMS;
 import ca.est.entity.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,36 +29,36 @@ public class UserDetailsBuilder implements UserDetails{
 	String token;
 	LocalDateTime created;
 	Collection<? extends GrantedAuthority> authorities = null;
-	UserBlog userBlog;
+	UserCMS userCMS;
 	public UserDetailsBuilder() {
 
 	}
     public UserDetailsBuilder(Long id_user, String username,String password,LocalDateTime created,
-			Set<GrantedAuthority> authorities,UserBlog userBlog) {
+			Set<GrantedAuthority> authorities,UserCMS userCMS) {
 		this.id_user = id_user;
 		this.username = username;
 		this.password = password;
 		this.created = created;
 		this.authorities = authorities;
-		this.userBlog= userBlog;
+		this.userCMS= userCMS;
 	}
 	/**
-     * @param userBlog
+     * @param userCMS
      * @return
      */
-    public static UserDetailsBuilder build(UserBlog userBlog) {
+    public static UserDetailsBuilder build(UserCMS userCMS) {
     	//Set<UserRole> userRolesList = userBlog.getUserRole();
     	//Set<String> rolesList = userRolesList.stream().map(UserRole::getRole).collect(Collectors.toSet());
-    	UserRole userRole = userBlog.getUserRole();
+    	UserRole userRole = userCMS.getUserRole();
     	Set<String> rolesList = new HashSet<String>();
     	rolesList.add(userRole.getRole());
     	return new UserDetailsBuilder(
-    			userBlog.getId_user(),
-    			userBlog.getUsername(),
-    			userBlog.getPassword(),
-    			userBlog.getCreated(),
+    			userCMS.getId_user(),
+    			userCMS.getUsername(),
+    			userCMS.getPassword(),
+    			userCMS.getCreated(),
                 mapToGrantedAuthorities(rolesList),
-                userBlog
+                userCMS
         );
     }
 

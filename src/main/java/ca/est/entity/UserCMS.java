@@ -25,8 +25,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "user_blog")
-public class UserBlog {
+@Table(name = "user_cms")
+public class UserCMS {
 	
 	@Id
 	@Column(name = "id_user")
@@ -52,7 +52,7 @@ public class UserBlog {
 	@OneToOne(mappedBy = "userBlog", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private UserRole userRole = new UserRole();
 	
- 	public UserBlog() {
+ 	public UserCMS() {
  		super();
  	}	
 	/**
@@ -61,7 +61,7 @@ public class UserBlog {
 	 * @param username
 	 * @param password
 	 */
- 	public UserBlog(Long id_user, String username, String password) {
+ 	public UserCMS(Long id_user, String username, String password) {
 		super();
 		this.id_user = id_user;
 		this.username = username;
@@ -75,7 +75,7 @@ public class UserBlog {
 	 * @param password
 	 * @param created
 	 */
-	public UserBlog(Long id_user, String username, String password, LocalDateTime created) {
+	public UserCMS(Long id_user, String username, String password, LocalDateTime created) {
 		super();
 		this.id_user = id_user;
 		this.username = username;
@@ -90,7 +90,7 @@ public class UserBlog {
 	 * @param password
 	 * @param created
 	 */
-	public UserBlog(Long id_user, String username, String password, LocalDateTime created, LocalDateTime lastUpdate) {
+	public UserCMS(Long id_user, String username, String password, LocalDateTime created, LocalDateTime lastUpdate) {
 		super();
 		this.id_user = id_user;
 		this.username = username;
@@ -107,7 +107,7 @@ public class UserBlog {
 	 * @param created
 	 * @param article
 	 */
-	public UserBlog(Long id_user, String username, String password, LocalDateTime created,LocalDateTime lastUpdate,
+	public UserCMS(Long id_user, String username, String password, LocalDateTime created,LocalDateTime lastUpdate,
 			Set<Article> article) {
 		super();
 		this.id_user = id_user;
@@ -127,7 +127,7 @@ public class UserBlog {
 	 * @param article
 	 * @param userRole
 	 */
-	public UserBlog(Long id_user, String username, String password, LocalDateTime created,LocalDateTime lastUpdate,
+	public UserCMS(Long id_user, String username, String password, LocalDateTime created,LocalDateTime lastUpdate,
 			Set<Article> article, UserRole userRole) {
 		super();
 		this.id_user = id_user;

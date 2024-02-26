@@ -2,7 +2,7 @@ package ca.est.entity.http;
 
 import java.time.LocalDateTime;
 
-import ca.est.entity.UserBlog;
+import ca.est.entity.UserCMS;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +18,7 @@ public class ArticleResponse {
 	private String text;
 	private int status;
 	private LocalDateTime created;
-    private UserBlog userBlog = new UserBlog();
+    private UserCMS userCMS = new UserCMS();
 
 	/**
 	 * Article Response
@@ -27,16 +27,16 @@ public class ArticleResponse {
 	 * @param text
 	 * @param status
 	 * @param created
-	 * @param userBlog
+	 * @param userCMS
 	 */
 	public ArticleResponse(Long id_articles, String title, String text, int status, LocalDateTime created,
-			UserBlog userBlog) {
+			UserCMS userCMS) {
 		super();
 		this.id_articles = id_articles;
 		this.title = title;
 		this.text = text;
 		this.status = status;
 		this.created = created;
-		this.userBlog = userBlog;
+		this.userCMS = userCMS;
 	}	
 }

@@ -12,7 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-import ca.est.entity.UserBlog;
+import ca.est.entity.UserCMS;
 import ca.est.entity.http.ServiceResponse;
 import ca.est.entity.http.UserCreateRequest;
 import ca.est.entity.http.UserResponse;
@@ -43,7 +43,7 @@ public class UserService {
 	 */
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR') or hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')")
 	public ServiceResponse findAllUsers() throws NoSuchElementFoundException {
-		List<UserBlog> userList = userRepository.findAll();
+		List<UserCMS> userList = userRepository.findAll();
 		TypeToken<List<UserResponse>> typeToken = new TypeToken<>() {
 		};
 		List<UserResponse> userResponList = modelMapper.map(userList, typeToken.getType());
@@ -60,9 +60,9 @@ public class UserService {
 		if (id == null) {
 			return new ServiceResponse(HttpStatus.BAD_REQUEST);
 		}
-		Optional<UserBlog> userBlog = userRepository.findById(id);
-		if (userBlog.isPresent()) {
-			UserResponse userRespon = modelMapper.map(userBlog.get(), UserResponse.class);
+		Optional<UserCMS> userCMS = userRepository.findById(id);
+		if (userCMS.isPresent()) {
+			UserResponse userRespon = modelMapper.map(userCMS.get(), UserResponse.class);
 			return new ServiceResponse(userRespon, HttpStatus.OK);
 		} else {
 			return new ServiceResponse(HttpStatus.NOT_FOUND);
@@ -77,9 +77,9 @@ public class UserService {
 	 */
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR') or hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')")
 	public ServiceResponse updateUser(UserUpdateRequest userUpdateRequest) throws NoSuchElementFoundException {
-		Optional<UserBlog> userBlog = userRepository.findById(userUpdateRequest.getId_user());
-		if (userBlog.isPresent()) {
-			UserBlog ub = userBlog.get();
+		Optional<UserCMS> userCMS = userRepository.findById(userUpdateRequest.getId_user());
+		if (userCMS.isPresent()) {
+			UserCMS ub = userCMS.get();
 			ub.setUsername(userUpdateRequest.getUsername());
 			ub.setPassword(restUtil.createEncodePassword(userUpdateRequest.getPassword()));
 			ub.setLastUpdate(LocalDateTime.now());
@@ -98,9 +98,9 @@ public class UserService {
 	 */
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR') or hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')")
 	public ServiceResponse createUser(UserCreateRequest userCreateRequest) throws NoSuchElementFoundException {
-		Optional<UserBlog> userBlog = userRepository.findByUsername(userCreateRequest.getUsername());
-		if (userBlog.isEmpty()) {
-			UserBlog ub = new UserBlog();
+		Optional<UserCMS> userCMS = userRepository.findByUsername(userCreateRequest.getUsername());
+		if (userCMS.isEmpty()) {
+			UserCMS ub = new UserCMS();
 			ub.setUsername(userCreateRequest.getUsername());
 			ub.setPassword(restUtil.createEncodePassword(userCreateRequest.getPassword()));
 			ub.setCreated(LocalDateTime.now());
@@ -114,9 +114,9 @@ public class UserService {
 	@DeleteMapping("{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR') or hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')")
 	public ServiceResponse deleteUser(Long id) {
-		Optional<UserBlog> userBlog = userRepository.findById(id);
-		if (userBlog.isPresent()) {
-			UserBlog ub = userBlog.get();
+		Optional<UserCMS> userCMS = userRepository.findById(id);
+		if (userCMS.isPresent()) {
+			UserCMS ub = userCMS.get();
 			userRepository.delete(ub);
 			return new ServiceResponse(HttpStatus.OK);
 		} else {

@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ca.est</groupId>
-	<artifactId>blog</artifactId>
+	<artifactId>cms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>est-blog</name>
-	<description>Spring boot blog using Spring security, data, JWT,OpenAPI and H2 </description>
+	<description>CMS using Spring Security, Spring Data, JWT,OpenAPI and H2 </description>
 
 	<properties>
 		<java.version>21</java.version>
@@ -155,7 +155,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>est-blog</finalName>
+		<finalName>cms</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

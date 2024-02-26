@@ -10,7 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import ca.est.entity.UserBlog;
+import ca.est.entity.UserCMS;
 import ca.est.security.UserDetailsBuilder;
 import lombok.extern.log4j.Log4j2;
 
@@ -25,7 +25,7 @@ public class UserUtil {
 	 * 
 	 * @return
 	 */
-	public UserBlog getCurrentUser() {
+	public UserCMS getCurrentUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		try {
 			Object auth = authentication.getPrincipal();

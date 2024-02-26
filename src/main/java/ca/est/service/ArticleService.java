@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import ca.est.entity.Article;
-import ca.est.entity.UserBlog;
+import ca.est.entity.UserCMS;
 import ca.est.entity.http.ArticleCreateRequest;
 import ca.est.entity.http.ArticlePaginationRequest;
 import ca.est.entity.http.ArticleRequest;
@@ -117,10 +117,10 @@ public class ArticleService {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			Object auth = authentication.getPrincipal();
 			UserDetailsBuilder secUser = (UserDetailsBuilder) auth;
-			TypeToken<UserBlog> typeToken = new TypeToken<>() {
+			TypeToken<UserCMS> typeToken = new TypeToken<>() {
 			};
-			UserBlog userBlog = modelMapper.map(secUser, typeToken.getType());
-			ar.setUserBlog(userBlog);
+			UserCMS userCMS = modelMapper.map(secUser, typeToken.getType());
+			ar.setUserBlog(userCMS);
 
 			articleRepository.save(ar);
 			return new ServiceResponse(HttpStatus.OK);
@@ -138,7 +138,7 @@ public class ArticleService {
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR') or hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')")
 	public ServiceResponse createArticle(ArticleCreateRequest articleCreateRequest) throws NoSuchElementFoundException {
 
-		TypeToken<UserBlog> typeToken = new TypeToken<>() {
+		TypeToken<UserCMS> typeToken = new TypeToken<>() {
 		};
 		Article article = modelMapper.map(articleCreateRequest, typeToken.getType());
 		try {

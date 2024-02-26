@@ -37,7 +37,7 @@ public class UserRole {
 	@JsonBackReference //is the back part of reference; it’ll be omitted from serialization.
 	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "id_user")
-    private UserBlog userBlog;
+    private UserCMS userCMS;
     
 	public UserRole() {
 		super();
@@ -59,13 +59,13 @@ public class UserRole {
 	 * @param id_role
 	 * @param role
 	 * @param created
-	 * @param userBlog
+	 * @param userCMS
 	 */
-	public UserRole(Long id_role, String role, LocalDateTime created, UserBlog userBlog) {
+	public UserRole(Long id_role, String role, LocalDateTime created, UserCMS userCMS) {
 		super();
 		this.id_role = id_role;
 		this.role = role;
 		this.created = created;
-		this.userBlog = userBlog;
+		this.userCMS = userCMS;
 	}   
 }

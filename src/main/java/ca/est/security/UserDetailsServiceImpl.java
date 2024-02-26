@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import ca.est.entity.UserBlog;
+import ca.est.entity.UserCMS;
 import ca.est.repository.UserRepository;
 import jakarta.transaction.Transactional;
 /**
@@ -21,9 +21,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	  @Override
 	  @Transactional
 	  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	    UserBlog userBlog = userRepository.findByUsername(username)
+	    UserCMS userCMS = userRepository.findByUsername(username)
 	        .orElseThrow(() -> new UsernameNotFoundException("UserBlog Not Found with username: " + username));
 
-	    return UserDetailsBuilder.build(userBlog);
+	    return UserDetailsBuilder.build(userCMS);
 	  }
 }

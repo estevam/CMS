@@ -1,6 +1,6 @@
-# OpenAPI definition
+## Endpoints for CMS(Content Management System)
 
-### REST endpoints with JWT security for a simple blog
+
 ##### Basic futures:  
    - Successfully login will create acces_token & refresh_token on the cookies
    - Logout will remove access_token & refresh_token from the cookies

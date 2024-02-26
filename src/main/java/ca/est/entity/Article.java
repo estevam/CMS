@@ -44,7 +44,7 @@ public class Article {
 	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "id_user")
 	@JsonBackReference //is the back part of reference; it’ll be omitted from serialization.
-    private UserBlog userBlog;
+    private UserCMS userCMS;
 	
 	public Article() {
 		super();
@@ -67,13 +67,13 @@ public class Article {
 	 * @param created
 	 * @param id_user
 	 */
-	public Article(Long id_articles, String title, String text, int status, LocalDateTime created, UserBlog userBlog) {
+	public Article(Long id_articles, String title, String text, int status, LocalDateTime created, UserCMS userCMS) {
 		super();
 		this.id_articles = id_articles;
 		this.title = title;
 		this.text = text;
 		this.status = status;
 		this.created = created;
-		this.userBlog = userBlog;
+		this.userCMS = userCMS;
 	}
 }
