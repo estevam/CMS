@@ -2,7 +2,6 @@ package ca.est.entity.http;
 
 import java.time.LocalDateTime;
 
-import ca.est.entity.UserCMS;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class ArticleResponse {
 
-	private Long id_articles;
+	private Long id_article;
 	private String title;
 	private String text;
 	private int status;
 	private LocalDateTime created;
-    private UserCMS userCMS = new UserCMS();
-
+   // private UserCMS userCMS = new UserCMS();
+	public ArticleResponse() {}
 	/**
 	 * Article Response
 	 * @param id_articles
@@ -29,14 +28,12 @@ public class ArticleResponse {
 	 * @param created
 	 * @param userCMS
 	 */
-	public ArticleResponse(Long id_articles, String title, String text, int status, LocalDateTime created,
-			UserCMS userCMS) {
+	public ArticleResponse(Long id_article, String title, String text, int status, LocalDateTime created) {
 		super();
-		this.id_articles = id_articles;
+		this.id_article = id_article;
 		this.title = title;
 		this.text = text;
 		this.status = status;
 		this.created = created;
-		this.userCMS = userCMS;
 	}	
 }

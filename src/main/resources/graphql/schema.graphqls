@@ -1,0 +1,17 @@
+type Query {
+  allArticles:[ArticleResponse]
+  articleById(id_article: ID): ArticleResponse
+  
+}
+
+type ArticleResponse {
+  id_article: ID
+  title: String
+  text: String
+  status: Int
+  created: String
+}
+
+type Mutation{
+  updateArticle(id_article: ID!, title: String): ArticleResponse
+}

@@ -49,7 +49,7 @@ public class UserCMS {
 	@OneToMany(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
 	private Set<Article> article = new HashSet<Article>();
 
-	@OneToOne(mappedBy = "userBlog", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "userCMS", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private UserRole userRole = new UserRole();
 	
  	public UserCMS() {

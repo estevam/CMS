@@ -25,9 +25,9 @@ import lombok.Setter;
 public class Article {
 	
 	@Id
-	@Column(name = "id_articles")
+	@Column(name = "id_article")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_articles;
+	private Long id_article;
 	
 	@Column(name = "title")
 	private String title;
@@ -50,9 +50,9 @@ public class Article {
 		super();
 	}
 
-	public Article(Long id_articles, String title, String text, int status, LocalDateTime created) {
+	public Article(Long id_article, String title, String text, int status, LocalDateTime created) {
 		super();
-		this.id_articles = id_articles;
+		this.id_article = id_article;
 		this.title = title;
 		this.text = text;
 		this.status = status;
@@ -60,16 +60,16 @@ public class Article {
 	}
 
 	/**
-	 * @param id_articles
+	 * @param id
 	 * @param title
 	 * @param text
 	 * @param status
 	 * @param created
 	 * @param id_user
 	 */
-	public Article(Long id_articles, String title, String text, int status, LocalDateTime created, UserCMS userCMS) {
+	public Article(Long id_article, String title, String text, int status, LocalDateTime created, UserCMS userCMS) {
 		super();
-		this.id_articles = id_articles;
+		this.id_article = id_article;
 		this.title = title;
 		this.text = text;
 		this.status = status;

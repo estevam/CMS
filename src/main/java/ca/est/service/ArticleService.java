@@ -107,7 +107,7 @@ public class ArticleService {
 	 */
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR') or hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')")
 	public ServiceResponse updateArticle(ArticleRequest userUpdateRequest) throws NoSuchElementFoundException {
-		Optional<Article> article = articleRepository.findById(userUpdateRequest.getId_articles());
+		Optional<Article> article = articleRepository.findById(userUpdateRequest.getId_article());
 		if (article.isPresent()) {
 			Article ar = article.get();
 			ar.setStatus(1);

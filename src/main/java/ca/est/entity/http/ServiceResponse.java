@@ -1,5 +1,6 @@
 package ca.est.entity.http;
 
+import java.util.Collection;
 import java.util.Objects;
 
 import org.springframework.http.HttpStatus;
@@ -7,12 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.ObjectUtils;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * Service response will encapsulate all the Service results to be used by RestControllers
  * Builder partner 
  * @author Estevam Meneses
  * 
  */
+@Log4j2
 public class ServiceResponse {
 	private HttpStatus status;
 	private Object data;
@@ -72,6 +76,18 @@ public class ServiceResponse {
 		return data;
 	}
 
+	/**
+	 * Only use for collection
+	 * @return Collection
+	 */
+	public Collection<?> getCollection() {
+		if(data instanceof Collection<?>) {
+			 return (Collection<?>) data;	
+		}
+	
+		log.error("Conversion collection error, Data is not collection:{}",data);
+		return null;
+	}
 	/**
 	 * Get HTTP headers
 	 * 

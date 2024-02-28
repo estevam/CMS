@@ -1,4 +1,4 @@
-## Endpoints for CMS(Content Management System)
+## A traditional CMS backend endpoints to administer and manage the content.
 
 
 ##### Basic futures:  
@@ -6,23 +6,41 @@
    - Logout will remove access_token & refresh_token from the cookies
    - CRUD operation authorized only if user is authenticated given access on URI "**/api/**"  
    
-   
- [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
- 
- [H2 Database](http://localhost:8080/app/h2)  
- 
 ```bash
 Java 21    
 Spring Boot: 3.2.0
 Spring Security: 6.2.0  
 H2 Database: 2.2.224
 Hibernate: 6.3.1.Final
+GraphQL: 3.2.0
 Swagger OpenAPI: 2.3.0
 Lombok : 1.18.30
 Actuator: 3.2.0
 Modelmapper: 3.2.0 
 Swagger OpenAPI: 2.3.0
+
 ```
+   
+ [Swagger UI](http://localhost:8080/app/swagger-ui/index.html)
+ 
+ [H2 Database](http://localhost:8080/app/h2)  
+ 
+ [GraphQL UI](http://localhost:8080/cms/graphiql?path=/cms/graphql)
+ 
+ ```bash
+ 
+ Request example on Graphiql UI:
+
+    allArticles{
+        id_article
+        title
+        text
+        status
+        created
+    }
+}
+```
+
 
  
 ### /login [POST] 

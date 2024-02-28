@@ -32,7 +32,7 @@ public class SecurityConfig {
 	@Autowired
 	AuthEntryPoint unauthorizedHandler;
 
-    private static final String[] AUTH_WHITE_LIST = {
+    private static final String[] WHITE_LIST = {
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/v2/api-docs/**",
@@ -43,7 +43,11 @@ public class SecurityConfig {
             "/h2/**",
             "/login",
             "/logout",
-            "/token/refresh"
+            "/token/refresh",
+            "/cms/graphql",
+            "/cms/graphiql/**",
+            "/cms/vendor/**",
+            "/cms/vendor/graphiql/**"
            
     };
     
@@ -79,14 +83,14 @@ public class SecurityConfig {
 	SecurityFilterChain filter(HttpSecurity http) throws Exception {
 
 		// http.csrf(csrf -> csrf.disable())
-		http.csrf(csrf -> csrf.ignoringRequestMatchers(AUTH_WHITE_LIST).disable())
+		http.csrf(csrf -> csrf.ignoringRequestMatchers(WHITE_LIST).disable())
 		        //FrameOptions is used to prevent security vulnerabilities like clickjacking. /
 				//.headers(headers -> headers.frameOptions(FrameOptionsConfig::disable)) //Prevents the header from being added to the response.
 		        .exceptionHandling(handling -> handling.accessDeniedHandler(accessDeniedHandler()) // Exception handling
 						.authenticationEntryPoint(unauthorizedHandler))
 				.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(
-						auth -> auth.requestMatchers(AUTH_WHITE_LIST).permitAll().anyRequest().authenticated())
+						auth -> auth.requestMatchers(WHITE_LIST).permitAll().anyRequest().authenticated())
 				.logout(logout -> logout.disable());
 
 		http.authenticationProvider(authenticationProvider());
