@@ -16,8 +16,7 @@ GraphQL: 3.2.0
 Swagger OpenAPI: 2.3.0
 Lombok : 1.18.30
 Actuator: 3.2.0
-Modelmapper: 3.2.0 
-Swagger OpenAPI: 2.3.0
+Modelmapper: 3.2.0
 
 ```
    
