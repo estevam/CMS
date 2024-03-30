@@ -1,33 +1,49 @@
 package ca.est.exception;
 
 import java.util.Objects;
-
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.lang.Nullable;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author Estevam Meneses
  */
-@Slf4j(topic = "GLOBAL_EXCEPTION_HANDLER")
-@RestControllerAdvice
+@Slf4j(topic = "EXCEPTION_HANDLER")
+@Order(Ordered.HIGHEST_PRECEDENCE)
+@ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-	public static final String TRACE = "trace";
 
 	@Value("${reflectoring.trace:false}")
 	private boolean printStackTrace;
+	public static final String TRACE = "trace";
+
+	@ExceptionHandler(EntityNotFoundException.class)
+	protected ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex) {
+		return buildErrorResponse(ex, "Entity not found", HttpStatus.NOT_FOUND);
+	}
+
+	@Override
+	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
+			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+		return buildErrorResponse(ex, "Malformed JSON request", HttpStatus.INTERNAL_SERVER_ERROR, request);
+	}
 
 	@Override
 	@ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
@@ -57,6 +73,23 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return buildErrorResponse(exception, "Unknown error occurred", HttpStatus.INTERNAL_SERVER_ERROR, request);
 	}
 
+	@ExceptionHandler(UserNotFoundException.class)
+	@ResponseStatus(HttpStatus.FORBIDDEN)
+	public ResponseEntity<Object> handleUserNotFoundException(Exception exception, WebRequest request) {
+		log.error("User not found exception", exception);
+		return buildErrorResponse(exception, "User not found exception", HttpStatus.FORBIDDEN, request);
+	}
+
+	@Override
+	public ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers,
+			HttpStatusCode statusCode, WebRequest request) {
+		return buildErrorResponse(ex, HttpStatus.valueOf(statusCode.value()), request);
+	}
+
+	private ResponseEntity<Object> buildErrorResponse(Exception exception, String message, HttpStatus httpStatus) {
+		return buildErrorResponse(exception, message, httpStatus, null);
+	}
+
 	private ResponseEntity<Object> buildErrorResponse(Exception exception, HttpStatus httpStatus, WebRequest request) {
 		return buildErrorResponse(exception, exception.getMessage(), httpStatus, request);
 	}
@@ -77,9 +110,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return Objects.nonNull(value) && value.length > 0 && value[0].contentEquals("true");
 	}
 
-	@Override
-	public ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers,
-			HttpStatusCode statusCode, WebRequest request) {
-		return buildErrorResponse(ex, HttpStatus.valueOf(statusCode.value()), request);
-	}
 }

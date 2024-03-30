@@ -2,7 +2,6 @@ package ca.est.security;
 
 
 import java.io.IOException;
-import java.util.Date;
 
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
@@ -33,9 +32,7 @@ public class AuthEntryPoint implements AuthenticationEntryPoint {
     response.setContentType(MediaType.APPLICATION_JSON_VALUE);
     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
-  
     errorResponse.setMessage("Unauthorized");
-    errorResponse.setTimestamp(new Date());
     errorResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
     
     final ObjectMapper mapper = new ObjectMapper();
