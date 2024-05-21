@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 *
 * @author Estevam.Meneses
 * @since 01/01/2018
-* @author Fred.Chen 05/02/2023
-* @apiNote  EnumerationUtil
 * @category Enumeration
 * 
 */
