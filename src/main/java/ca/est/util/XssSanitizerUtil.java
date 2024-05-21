@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * @author Vicente.LLanos. August 22, 2023
  *
  */
 public class XssSanitizerUtil {
